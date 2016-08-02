@@ -1,0 +1,21 @@
+rootProject.name = 'jmzemu'
+
+include ":deps"
+
+include ":tools:jmzemu-app"
+
+File placeholder = file("deps/_placeholder")
+if (placeholder.exists()) {
+    placeholder.delete()
+}
+
+if (!gradle.startParameter.taskNames.contains("clean") || gradle.startParameter.projectProperties.containsKey("moduleDep")) {
+    File depsDir = file("deps")
+    // Include all downloaded dependency modules
+    depsDir.listFiles().each() { childFile ->
+        if (childFile.isDirectory()) {
+            include ':deps:' + childFile.name
+        }
+    }
+}
+

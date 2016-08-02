@@ -1,0 +1,3 @@
+rootProject.name = 'jmzemu-app'
+
+apply from: '../tools-settings.gradle'
