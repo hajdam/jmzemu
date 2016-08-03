@@ -1,0 +1,4 @@
+rootProject.name = 'jmzemu-device-cpu'
+
+apply from: '../jmzemu-modules-settings.gradle'
+

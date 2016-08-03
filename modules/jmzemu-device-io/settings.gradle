@@ -1,0 +1,4 @@
+rootProject.name = 'jmzemu-device-io'
+
+apply from: '../jmzemu-modules-settings.gradle'
+

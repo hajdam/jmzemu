@@ -1,0 +1,4 @@
+rootProject.name = 'jmzemu-device-counter'
+
+apply from: '../jmzemu-modules-settings.gradle'
+

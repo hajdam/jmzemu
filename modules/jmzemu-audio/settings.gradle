@@ -1,0 +1,4 @@
+rootProject.name = 'jmzemu-audio'
+
+apply from: '../jmzemu-modules-settings.gradle'
+

@@ -1,8 +1,25 @@
 rootProject.name = 'jmzemu'
 
-include ":deps"
+include ':deps'
 
-include ":tools:jmzemu-app"
+include ':modules:jmzemu-audio'
+include ':modules:jmzemu-device-api'
+include ':modules:jmzemu-device-counter'
+include ':modules:jmzemu-device-cpu'
+include ':modules:jmzemu-device-cpu-api'
+include ':modules:jmzemu-device-gdg'
+include ':modules:jmzemu-device-gdg-api'
+include ':modules:jmzemu-device-i8253'
+include ':modules:jmzemu-device-i8255'
+include ':modules:jmzemu-device-io'
+include ':modules:jmzemu-device-memory'
+include ':modules:jmzemu-device-memory-api'
+include ':modules:jmzemu-device-pio'
+include ':modules:jmzemu-graphic'
+include ':modules:jmzemu-gui'
+include ':modules:jmzemu-keyboard'
+
+include ':tools:jmzemu-app'
 
 File placeholder = file("deps/_placeholder")
 if (placeholder.exists()) {

@@ -41,6 +41,9 @@ repositories {
 }
 
 dependencies {
+    compile moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-gui')
+    compile moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-graphic')
+    
     compile moduleDep('DeltahexJava', 'org.exbin.deltahex', 'deltahex')
     compile moduleDep('DeltahexJava', 'org.exbin.deltahex', 'deltahex-delta')
     compile moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-core')

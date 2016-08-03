@@ -34,6 +34,8 @@ ext.depsDeltahexJava = [
     version: '0.1.1-SNAPSHOT'
 ]
 
+ext.depsThis = 'Jmzemu'
+
 ['java', 'distribution', 'maven-publish', 'at.bxm.svntools'].each {
     apply plugin: it
 }
@@ -89,6 +91,10 @@ def createSvnDownloadTask(def moduleName, def svnUrlValue, def targetDirValue) {
 // - local maven repository module will be used if available
 // - otherwise module will be download to deps folder
 project.dependencies.ext.moduleDep = { depsName, packageName, moduleName ->
+    if (depsName == ext.depsThis) {
+        return project(":modules:" + moduleName)
+    }
+
     def mavenModuleDir = repositories.mavenLocal().url.path + packageName.replace('.', '/') + '/' + moduleName + '/' + ext['deps' + depsName].version
     if (new File(mavenModuleDir).isDirectory()) {
         // Use maven package if available

@@ -1,0 +1,4 @@
+rootProject.name = 'jmzemu-device-pio'
+
+apply from: '../jmzemu-modules-settings.gradle'
+

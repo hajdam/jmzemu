@@ -17,13 +17,13 @@
 package net.zdechov.sharpmz.jmzemu;
 
 import java.awt.Dimension;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
+import net.zdechov.sharpmz.jmzemu.module.graphic.GraphicsModule;
+import net.zdechov.sharpmz.jmzemu.module.gui.panel.AboutDialogSidePanel;
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.HelpFormatter;
@@ -42,8 +42,8 @@ import org.exbin.framework.gui.undo.api.GuiUndoModuleApi;
 import org.exbin.framework.gui.utils.ActionUtils;
 import org.exbin.framework.api.XBApplicationModuleRepository;
 import org.exbin.framework.deltahex.DeltaHexModule;
-import org.exbin.framework.deltahex.panel.HexPanel;
 import org.exbin.framework.gui.update.api.GuiUpdateModuleApi;
+import sun.font.GraphicComponent;
 
 /**
  * Emulator main application.
@@ -64,6 +64,7 @@ public class JMzEmu {
      * @param args arguments
      */
     public static void main(String[] args) {
+        
         try {
             preferences = Preferences.userNodeForPackage(JMzEmu.class);
         } catch (SecurityException ex) {
@@ -121,6 +122,8 @@ public class JMzEmu {
 //                }
                 updateModule.registerDefaultMenuItem();
                 aboutModule.registerDefaultMenuItem();
+                AboutDialogSidePanel sidePanel = new AboutDialogSidePanel();
+                aboutModule.setAboutDialogSideComponent(sidePanel);
 
                 frameModule.registerExitAction();
                 frameModule.registerBarsVisibilityActions();
@@ -137,7 +140,7 @@ public class JMzEmu {
 
                 // Register clipboard editing actions
                 menuModule.registerMenuClipboardActions();
-                menuModule.registerToolBarClipboardActions();
+//                menuModule.registerToolBarClipboardActions();
 
                 optionsModule.registerMenuAction();
 
@@ -156,11 +159,10 @@ public class JMzEmu {
 //                deltaHexModule.registerHexCharactersCaseHandlerMenu();
 //                deltaHexModule.registerWordWrapping();
 
-                ApplicationFrameHandler frameHandler = frameModule.getFrameHandler();
-                HexPanel hexPanel = (HexPanel) deltaHexModule.getEditorProvider();
-                editorModule.registerEditor("hex", hexPanel);
-                editorModule.registerUndoHandler();
-                undoModule.setUndoHandler(hexPanel.getHexUndoHandler());
+//                HexPanel hexPanel = (HexPanel) deltaHexModule.getEditorProvider();
+//                editorModule.registerEditor("hex", hexPanel);
+//                editorModule.registerUndoHandler();
+//                undoModule.setUndoHandler(hexPanel.getHexUndoHandler());
 
 //                deltaHexModule.registerStatusBar();
 //                deltaHexModule.registerOptionsPanels();
@@ -169,7 +171,9 @@ public class JMzEmu {
 
 //                deltaHexModule.loadFromPreferences(preferences);
 
-                frameHandler.setMainPanel(editorModule.getEditorPanel());
+                ApplicationFrameHandler frameHandler = frameModule.getFrameHandler();
+                GraphicsModule graphicsModule = new GraphicsModule();
+                frameHandler.setMainPanel(graphicsModule.getGraphicsComponent());
                 frameHandler.setDefaultSize(new Dimension(600, 400));
                 frameHandler.show();
                 updateModule.checkOnStart(frameHandler.getFrame());

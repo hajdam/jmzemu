@@ -1,0 +1,4 @@
+rootProject.name = 'jmzemu-graphic'
+
+apply from: '../jmzemu-modules-settings.gradle'
+
