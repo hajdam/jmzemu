@@ -17,6 +17,7 @@
 package net.zdechov.sharpmz.jmzemu;
 
 import java.awt.Dimension;
+import java.io.File;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -38,17 +39,14 @@ import org.exbin.framework.gui.frame.api.ApplicationFrameHandler;
 import org.exbin.framework.gui.frame.api.GuiFrameModuleApi;
 import org.exbin.framework.gui.menu.api.GuiMenuModuleApi;
 import org.exbin.framework.gui.options.api.GuiOptionsModuleApi;
-import org.exbin.framework.gui.undo.api.GuiUndoModuleApi;
-import org.exbin.framework.gui.utils.ActionUtils;
 import org.exbin.framework.api.XBApplicationModuleRepository;
-import org.exbin.framework.deltahex.DeltaHexModule;
 import org.exbin.framework.gui.update.api.GuiUpdateModuleApi;
-import sun.font.GraphicComponent;
+import org.exbin.framework.gui.utils.LanguageUtils;
 
 /**
  * Emulator main application.
  *
- * @version 0.2.0 2016/08/02
+ * @version 0.2.0 2016/08/19
  * @author ExBin Project (http://exbin.org)
  */
 public class JMzEmu {
@@ -64,14 +62,14 @@ public class JMzEmu {
      * @param args arguments
      */
     public static void main(String[] args) {
-        
+
         try {
             preferences = Preferences.userNodeForPackage(JMzEmu.class);
         } catch (SecurityException ex) {
             preferences = null;
         }
         try {
-            bundle = ActionUtils.getResourceBundleByClass(JMzEmu.class);
+            bundle = LanguageUtils.getResourceBundleByClass(JMzEmu.class);
             // Parameters processing
             Options opt = new Options();
             opt.addOption("h", "help", false, bundle.getString("cl_option_help"));
@@ -95,24 +93,23 @@ public class JMzEmu {
 
                 XBBaseApplication app = new XBBaseApplication();
                 app.setAppPreferences(preferences);
-                app.setAppBundle(bundle, ActionUtils.getResourceBaseNameBundleByClass(JMzEmu.class));
-                app.init();
+                app.setAppBundle(bundle, LanguageUtils.getResourceBaseNameBundleByClass(JMzEmu.class));
 
                 XBApplicationModuleRepository moduleRepository = app.getModuleRepository();
                 moduleRepository.addClassPathModules();
                 moduleRepository.addModulesFromManifest(JMzEmu.class);
+                moduleRepository.loadModulesFromPath(new File("plugins").toURI());
                 moduleRepository.initModules();
+                app.init();
 
                 GuiFrameModuleApi frameModule = moduleRepository.getModuleByInterface(GuiFrameModuleApi.class);
                 GuiEditorModuleApi editorModule = moduleRepository.getModuleByInterface(GuiEditorModuleApi.class);
                 GuiMenuModuleApi menuModule = moduleRepository.getModuleByInterface(GuiMenuModuleApi.class);
                 GuiAboutModuleApi aboutModule = moduleRepository.getModuleByInterface(GuiAboutModuleApi.class);
-                GuiUndoModuleApi undoModule = moduleRepository.getModuleByInterface(GuiUndoModuleApi.class);
                 GuiFileModuleApi fileModule = moduleRepository.getModuleByInterface(GuiFileModuleApi.class);
                 GuiOptionsModuleApi optionsModule = moduleRepository.getModuleByInterface(GuiOptionsModuleApi.class);
                 GuiUpdateModuleApi updateModule = moduleRepository.getModuleByInterface(GuiUpdateModuleApi.class);
-
-                DeltaHexModule deltaHexModule = moduleRepository.getModuleByInterface(DeltaHexModule.class);
+                frameModule.createMainMenu();
 
 //                try {
 //                    updateModule.setUpdateUrl(new URL(bundle.getString("update_url")));
@@ -137,40 +134,22 @@ public class JMzEmu {
 //                undoModule.registerMainMenu();
 //                undoModule.registerMainToolBar();
 //                undoModule.registerUndoManagerInMainMenu();
-
                 // Register clipboard editing actions
-                menuModule.registerMenuClipboardActions();
+                menuModule.getClipboardActions();
+//                menuModule.registerMenuClipboardActions();
 //                menuModule.registerToolBarClipboardActions();
-
                 optionsModule.registerMenuAction();
-
-//                deltaHexModule.registerEditFindMenuActions();
-//                deltaHexModule.registerEditFindToolBarActions();
-//                deltaHexModule.registerViewNonprintablesMenuActions();
-//                deltaHexModule.registerToolsOptionsMenuActions();
-//                deltaHexModule.registerClipboardCodeActions();
-//                deltaHexModule.registerOptionsMenuPanels();
-//                deltaHexModule.registerGoToLine();
-//                deltaHexModule.registerPropertiesMenu();
-//                deltaHexModule.registerPrintMenu();
-//                deltaHexModule.registerViewModeMenu();
-//                deltaHexModule.registerCodeTypeMenu();
-//                deltaHexModule.registerPositionCodeTypeMenu();
-//                deltaHexModule.registerHexCharactersCaseHandlerMenu();
-//                deltaHexModule.registerWordWrapping();
 
 //                HexPanel hexPanel = (HexPanel) deltaHexModule.getEditorProvider();
 //                editorModule.registerEditor("hex", hexPanel);
 //                editorModule.registerUndoHandler();
 //                undoModule.setUndoHandler(hexPanel.getHexUndoHandler());
-
 //                deltaHexModule.registerStatusBar();
 //                deltaHexModule.registerOptionsPanels();
 //                deltaHexModule.getTextStatusPanel();
                 updateModule.registerOptionsPanels();
 
 //                deltaHexModule.loadFromPreferences(preferences);
-
                 ApplicationFrameHandler frameHandler = frameModule.getFrameHandler();
                 GraphicsModule graphicsModule = new GraphicsModule();
                 frameHandler.setMainPanel(graphicsModule.getGraphicsComponent());
