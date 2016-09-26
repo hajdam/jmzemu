@@ -9,5 +9,13 @@ def modifyPath(project) {
 }
 
 if (rootProject.path == ':') {
+    // Include all local dependency modules
+    File depsDir = file("../modules")
+    depsDir.listFiles().each() { childFile ->
+        if (childFile.isDirectory()) {
+            include ':modules:' + childFile.name
+        }
+    }
+
     modifyPath(rootProject)
 }

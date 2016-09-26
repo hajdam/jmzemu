@@ -1,4 +1,9 @@
 rootProject.name = 'jmzemu-device-memory'
 
+if (rootProject.path == ':') {
+    include ":modules:jmzemu-device-api"
+    include ":modules:jmzemu-device-memory-api"
+}
+
 apply from: '../jmzemu-modules-settings.gradle'
 

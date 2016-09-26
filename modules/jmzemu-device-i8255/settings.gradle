@@ -1,4 +1,8 @@
 rootProject.name = 'jmzemu-device-i8255'
 
+if (rootProject.path == ':') {
+    include ":modules:jmzemu-device-api"
+}
+
 apply from: '../jmzemu-modules-settings.gradle'
 
