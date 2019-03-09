@@ -32,7 +32,7 @@ public interface CpuDeviceModuleApi extends XBApplicationModule {
      * @param module
      * @param memoryHandler
      */
-    public void registerMemoryHandler(XBApplicationModule module, MemoryHandler memoryHandler);
+    void registerMemoryHandler(XBApplicationModule module, MemoryHandler memoryHandler);
 
     /**
      * Register port handler.
@@ -40,14 +40,14 @@ public interface CpuDeviceModuleApi extends XBApplicationModule {
      * @param module
      * @param portHandler
      */
-    public void registerPortHandler(XBApplicationModule module, PortHandler portHandler);
+    void registerPortHandler(XBApplicationModule module, PortHandler portHandler);
 
     /**
      * Unregister handlers registred for other modules.
      *
      * @param module
      */
-    public void unregisterModule(XBApplicationModule module);
+    void unregisterModule(XBApplicationModule module);
 
     public interface MemoryHandler {
 
@@ -58,7 +58,7 @@ public interface CpuDeviceModuleApi extends XBApplicationModule {
          * @param parentHandler parent handler
          * @return red byte
          */
-        public byte read(int position, MemoryHandler parentHandler);
+        byte read(int position, MemoryHandler parentHandler);
 
         /**
          * Write to memory.
@@ -67,13 +67,13 @@ public interface CpuDeviceModuleApi extends XBApplicationModule {
          * @param value written byte
          * @param parentHandler parent handler
          */
-        public void write(int position, byte value, MemoryHandler parentHandler);
+        void write(int position, byte value, MemoryHandler parentHandler);
     }
 
     public interface PortHandler {
 
-        public int inpPort(int portNumber, PortHandler parentHandler);
+        int inpPort(int portNumber, PortHandler parentHandler);
 
-        public void outPort(int portNumber, int value, PortHandler parentHandler);
+        void outPort(int portNumber, int value, PortHandler parentHandler);
     }
 }

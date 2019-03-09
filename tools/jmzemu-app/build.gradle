@@ -43,10 +43,12 @@ repositories {
 dependencies {
     compile moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-gui')
     compile moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-graphic')
-    
-    compile moduleDep('DeltahexJava', 'org.exbin.deltahex', 'deltahex-swing')
-    compile moduleDep('DeltahexJava', 'org.exbin.deltahex', 'deltahex-delta')
+
+    compile moduleDep('BinedLibJava', 'org.exbin.bined', 'bined-core')
+    compile moduleDep('BinedLibJava', 'org.exbin.bined', 'bined-swing')
+    compile moduleDep('BinedLibJava', 'org.exbin.bined', 'bined-delta')
     compile moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-core')
+    compile moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-plugin')
     compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework')
     compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-frame-api')
     compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-frame')
@@ -62,6 +64,7 @@ dependencies {
     compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-options-api')
     compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-update')
     compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-update-api')
+    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-utils')
     compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-editor-text')
     compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-deltahex')
     compile 'commons-cli:commons-cli:1.2'

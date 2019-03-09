@@ -13,7 +13,7 @@ Screenshot
 Compiling
 ---------
 
-Java Development Kit (JDK) version 7 or later is required to build this project.
+Java Development Kit (JDK) version 8 or later is required to build this project.
 
 For project compiling Gradle build system is used. You can either download and install gradle and run
 
