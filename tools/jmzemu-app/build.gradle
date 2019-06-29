@@ -66,7 +66,7 @@ dependencies {
     compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-update-api')
     compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-utils')
     compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-editor-text')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-deltahex')
+    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-bined')
     compile 'commons-cli:commons-cli:1.2'
     testCompile group: 'junit', name: 'junit', version: '4.10'
 }

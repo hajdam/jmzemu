@@ -30,6 +30,7 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.exbin.framework.PreferencesWrapper;
 import org.exbin.framework.XBBaseApplication;
 import org.exbin.xbup.core.parser.basic.XBHead;
 import org.exbin.framework.gui.about.api.GuiAboutModuleApi;
@@ -92,7 +93,7 @@ public class JMzEmu {
                 }
 
                 XBBaseApplication app = new XBBaseApplication();
-                app.setAppPreferences(preferences);
+                app.setAppPreferences(new PreferencesWrapper(preferences));
                 app.setAppBundle(bundle, LanguageUtils.getResourceBaseNameBundleByClass(JMzEmu.class));
 
                 XBApplicationModuleRepository moduleRepository = app.getModuleRepository();

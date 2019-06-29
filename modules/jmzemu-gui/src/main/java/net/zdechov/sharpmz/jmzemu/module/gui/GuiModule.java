@@ -28,7 +28,7 @@ import org.exbin.xbup.plugin.XBModuleHandler;
 public class GuiModule implements XBApplicationModule {
 
     @Override
-    public void init(XBModuleHandler xbmh) {
+    public void init(XBModuleHandler moduleHandler) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
