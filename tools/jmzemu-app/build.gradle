@@ -46,7 +46,6 @@ dependencies {
 
     compile moduleDep('BinedLibJava', 'org.exbin.bined', 'bined-core')
     compile moduleDep('BinedLibJava', 'org.exbin.bined', 'bined-swing')
-    compile moduleDep('BinedLibJava', 'org.exbin.bined', 'bined-delta')
     compile moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-core')
     compile moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-plugin')
     compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework')

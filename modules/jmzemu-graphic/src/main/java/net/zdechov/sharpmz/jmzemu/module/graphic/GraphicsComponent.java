@@ -34,7 +34,9 @@ public class GraphicsComponent extends JComponent {
 
     private RenderingMode renderingMode = RenderingMode.KEEP_ASPECT_RATIO;
     
-    private Image screenImage = new BufferedImage(320, 200, BufferedImage.TYPE_INT_RGB);
+    private static final int DISPLAY_PAL_RESOLUTION_X = 460;
+    private static final int DISPLAY_PAL_RESOLUTION_Y = 287;
+    private Image screenImage = new BufferedImage(DISPLAY_PAL_RESOLUTION_X, DISPLAY_PAL_RESOLUTION_Y, BufferedImage.TYPE_INT_RGB);
 
     private final ImageObserver nullImageObserver = new ImageObserver() {
         @Override

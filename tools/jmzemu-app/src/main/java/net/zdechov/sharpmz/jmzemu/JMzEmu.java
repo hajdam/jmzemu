@@ -30,7 +30,6 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.exbin.framework.PreferencesWrapper;
 import org.exbin.framework.XBBaseApplication;
 import org.exbin.xbup.core.parser.basic.XBHead;
 import org.exbin.framework.gui.about.api.GuiAboutModuleApi;
@@ -43,6 +42,7 @@ import org.exbin.framework.gui.options.api.GuiOptionsModuleApi;
 import org.exbin.framework.api.XBApplicationModuleRepository;
 import org.exbin.framework.gui.update.api.GuiUpdateModuleApi;
 import org.exbin.framework.gui.utils.LanguageUtils;
+import org.exbin.framework.preferences.PreferencesWrapper;
 
 /**
  * Emulator main application.
