@@ -1,0 +1,8 @@
+rootProject.name = 'jmzemu-machine'
+
+if (rootProject.path == ':') {
+    include ":modules:jmzemu-device-api"
+}
+
+apply from: '../jmzemu-modules-settings.gradle'
+

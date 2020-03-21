@@ -33,7 +33,7 @@ import javax.swing.JComponent;
 public class GraphicsComponent extends JComponent {
 
     private RenderingMode renderingMode = RenderingMode.KEEP_ASPECT_RATIO;
-    
+
     private static final int DISPLAY_PAL_RESOLUTION_X = 460;
     private static final int DISPLAY_PAL_RESOLUTION_Y = 287;
     private Image screenImage = new BufferedImage(DISPLAY_PAL_RESOLUTION_X, DISPLAY_PAL_RESOLUTION_Y, BufferedImage.TYPE_INT_RGB);
@@ -50,7 +50,7 @@ public class GraphicsComponent extends JComponent {
         Graphics g = screenImage.getGraphics();
         for (int i = 0; i < 1000; i++) {
             g.setColor(new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255)));
-            g.drawLine((int) (Math.random() * 319), (int) (Math.random() * 199), (int) (Math.random() * 319), (int) (Math.random() * 199));
+            g.drawLine((int) (Math.random() * DISPLAY_PAL_RESOLUTION_X), (int) (Math.random() * DISPLAY_PAL_RESOLUTION_Y), (int) (Math.random() * DISPLAY_PAL_RESOLUTION_X), (int) (Math.random() * DISPLAY_PAL_RESOLUTION_Y));
         }
     }
 
@@ -103,13 +103,15 @@ public class GraphicsComponent extends JComponent {
         this.screenImage = image;
         repaint();
     }
-    
+
     private static class RectangleStructure {
+
         int x;
         int y;
         int width;
         int height;
     }
+
     public static enum RenderingMode {
         FIXED_NORMAL_ZOOM,
         FIXED_DOUBLE_ZOOM,

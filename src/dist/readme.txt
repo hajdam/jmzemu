@@ -1,36 +1,16 @@
-Delta Hexadecimal Library
-=========================
+JMZEmu - Sharp MZ-800 Emulator
+==============================
 
-Hexadecimal viewer/editor component library for Java / Swing.
+This is emulator of 8-bit computer Sharp MZ-800 written in Java.
 
-Homepage: http://deltahex.exbin.org  
+Homepage: http://sharpmz.zdechov.net/?jmzemu  
 
-Features
---------
+Running
+-------
 
-- Data as hexadecimal codes and text preview
-- Insert and overwrite edit modes
-- Support for selection and clipboard actions
-- Scrollbars fixed or optional, character/line or pixel precision
-- Support for showing unprintable/whitespace characters
-- Support for undo/redo
-- Support for charset/encoding selection
-- Codes can be also binary, octal or decimal
-- Support for code and matching highlighting
-
-Todo
-----
-
-- Delta mode - Only changes are stored in memory
-- Support for huge files
+Use jmzemu.bat or jmzemu.exe on Windows and jmzemu.sh on Linux.
 
 License
 -------
 
-Apache License, Version 2.0 - see LICENSE-2.0.txt  
-
-Usage
------
-
-Please see deltahex-example application and sources.
-
+GNU/GPL, Version 3.0 - see gpl-3.0.txt  

@@ -1,4 +1,4 @@
-rootProject.name = 'jmzemu-device-gdg'
+rootProject.name = 'jmzemu-device-sharpmz-gdg'
 
 if (rootProject.path == ':') {
     include ":modules:jmzemu-device-api"
