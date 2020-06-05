@@ -21,7 +21,7 @@ import org.exbin.framework.api.XBApplicationModule;
 import org.exbin.xbup.plugin.XBModuleHandler;
 
 /**
- * Z80 device module.
+ * Z80 CPU device module.
  *
  * @version 0.2.0 2016/08/03
  * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)

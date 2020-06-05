@@ -1,8 +1,9 @@
-rootProject.name = 'jmzemu-device-sharpmz-gdg'
+rootProject.name = 'jmzemu-device-gdg'
 
 if (rootProject.path == ':') {
     include ":modules:jmzemu-device-api"
     include ":modules:jmzemu-device-memory-api"
+    include ":modules:jmzemu-device-gdg-api"
 }
 
 apply from: '../jmzemu-modules-settings.gradle'

@@ -3,7 +3,7 @@ JMZEmu - Sharp MZ-800 Emulator
 
 This is emulator of 8-bit computer Sharp MZ-800 written in Java.
 
-Homepage: http://sharpmz.zdechov.net/?jmzemu  
+Homepage: https://sharpmz.zdechov.net/?jmzemu  
 
 Screenshot
 ----------
