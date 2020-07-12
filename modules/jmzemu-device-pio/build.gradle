@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    compile moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-api')
-    compile moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-plugin')
-    testCompile group : 'junit', name: 'junit', version: '4.10'
+    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-api')
+    implementation moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-plugin')
+    testImplementation group : 'junit', name: 'junit', version: '4.10'
 }

@@ -40,7 +40,7 @@ buildscript {
     }
 }
 
-['java', 'maven', 'maven-publish', 'at.bxm.svntools', 'signing'].each {
+['java-library', 'maven-publish', 'at.bxm.svntools', 'signing'].each {
     apply plugin: it
 }
 import org.gradle.util.VersionNumber
@@ -71,7 +71,7 @@ if (!gradle.startParameter.taskNames.any {it.endsWith("test")}) {
 
 task testJar(type: Jar, dependsOn: testClasses) {
     classifier "tests"
-    baseName = "test-${project.archivesBaseName}"
+    archiveBaseName = "test-${project.archivesBaseName}"
     from sourceSets.test.output
 }
 
@@ -105,7 +105,6 @@ def createSvnDownloadTask(def moduleName, def svnUrlValue, def targetDirValue) {
 // - otherwise module will be download to deps folder
 project.dependencies.ext.moduleDep = { depsName, packageName, moduleName ->
     if (depsName == ext.depsThis) {
-    	println 'Module name: ' + moduleName
         return project(":modules:" + moduleName)
     }
 
@@ -175,8 +174,8 @@ publishing {
                     }
                     licenses {
                         license {
-                            name 'LGPL license, Version 3.0'
-                            url 'https://www.gnu.org/licenses/lgpl.txt'
+                            name 'Apache License, Version 2.0'
+                            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
                             distribution 'repo'
                         }
                     }

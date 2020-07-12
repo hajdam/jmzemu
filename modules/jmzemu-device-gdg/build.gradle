@@ -27,10 +27,10 @@ repositories {
 }
 
 dependencies {
-    compile moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-api')
-    compile moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-memory-api')
-    compile moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-gdg-api')
-    compile moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-plugin')
+    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-api')
+    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-memory-api')
+    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-gdg-api')
+    implementation moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-plugin')
 
-    testCompile group : 'junit', name: 'junit', version: '4.10'
+    testImplementation group : 'junit', name: 'junit', version: '4.10'
 }

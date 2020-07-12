@@ -41,38 +41,38 @@ repositories {
 }
 
 dependencies {
-    compile moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-gui')
-    compile moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-graphic')
+    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-gui')
+    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-graphic')
 
-    compile moduleDep('BinedLibJava', 'org.exbin.bined', 'bined-core')
-    compile moduleDep('BinedLibJava', 'org.exbin.bined', 'bined-swing')
-    compile moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-core')
-    compile moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-plugin')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-frame-api')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-frame')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-menu')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-menu-api')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-file')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-file-api')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-editor')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-editor-api')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-about')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-about-api')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-options')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-options-api')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-update')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-update-api')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-utils')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-editor-text')
-    compile moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-bined')
-    compile 'commons-cli:commons-cli:1.2'
-    testCompile group: 'junit', name: 'junit', version: '4.10'
+    implementation moduleDep('BinedLibJava', 'org.exbin.bined', 'bined-core')
+    implementation moduleDep('BinedLibJava', 'org.exbin.bined', 'bined-swing')
+    implementation moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-core')
+    implementation moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-plugin')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-frame-api')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-frame')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-menu')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-menu-api')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-file')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-file-api')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-editor')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-editor-api')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-about')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-about-api')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-options')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-options-api')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-update')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-update-api')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-gui-utils')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-editor-text')
+    implementation moduleDep('ExbinFrameworkJava', 'org.exbin.framework', 'exbin-framework-bined')
+    implementation 'commons-cli:commons-cli:1.2'
+    testImplementation group: 'junit', name: 'junit', version: '4.10'
 }
 
 def manifestClassPath() {
     try {
-        return (configurations.runtime.collect { 'lib/' + it.getName() }).join(' ')
+        return (configurations.runtimeClasspath.collect { 'lib/' + it.getName() }).join(' ')
     } catch (Exception) {
         return ""
     }

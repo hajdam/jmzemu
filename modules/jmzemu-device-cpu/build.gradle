@@ -27,8 +27,8 @@ repositories {
 }
 
 dependencies {
-    compile moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-api')
-    compile moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-cpu-api')
+    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-api')
+    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-cpu-api')
 
-    testCompile group : 'junit', name: 'junit', version: '4.10'
+    testImplementation group : 'junit', name: 'junit', version: '4.10'
 }
