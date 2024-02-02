@@ -1,18 +1,22 @@
-version = '0.2.0-SNAPSHOT'
-
 buildscript {
     repositories {
-        mavenLocal()
-        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
-        classpath("at.bxm.gradleplugins:gradle-svntools-plugin:latest.integration")
+        classpath "at.bxm.gradleplugins:gradle-svntools-plugin:2.2"
+        classpath "org.tmatesoft.svnkit:svnkit:1.10.1"
     }
 }
 
-['base', 'distribution', 'maven-publish', 'at.bxm.svntools'].each {
-    apply plugin: it
+plugins {
+    id 'base'
+    id 'distribution'
+    id 'maven-publish'
 }
+
+version = '0.2.0-SNAPSHOT'
 
 task cleanDeps {
     if (gradle.startParameter.taskNames.contains("clean") && !project.gradle.startParameter.projectProperties.containsKey("moduleDep")) {
@@ -35,8 +39,8 @@ clean.dependsOn cleanDeps
 
 subprojects.each { subproject -> evaluationDependsOn(subproject.path) }
 
-distZip.dependsOn (project(':tools').subprojects.findAll { it.name != "sample" }.assemble)
-distTar.dependsOn (project(':tools').subprojects.findAll { it.name != "sample" }.assemble)
+distZip.dependsOn (project(':apps').subprojects.findAll { it.name != "sample" }.assemble)
+distTar.dependsOn (project(':apps').subprojects.findAll { it.name != "sample" }.assemble)
 
 def createSvnDownloadTask(def moduleName, def svnUrlValue, def targetDirValue) {
     return tasks.create("svnDownload${moduleName}", at.bxm.gradleplugins.svntools.tasks.SvnExport) {
@@ -102,7 +106,7 @@ if (!project.gradle.startParameter.projectProperties.containsKey("moduleDep")) {
 //                    }
 //                }
 
-                project(':tools').subprojects.each { p ->
+                project(':apps').subprojects.each { p ->
                     p.plugins.withType(JavaPlugin) {
                         into('lib') {
                             from p.configurations.runtimeClasspath
@@ -127,7 +131,7 @@ if (!project.gradle.startParameter.projectProperties.containsKey("moduleDep")) {
 //                    exclude 'private'
 //                }
 //                into('bin/help') {
-//                    from 'tools/xbeditor/help'
+//                    from 'apps/xbeditor/help'
 //                    include '**'
 //                }
             }

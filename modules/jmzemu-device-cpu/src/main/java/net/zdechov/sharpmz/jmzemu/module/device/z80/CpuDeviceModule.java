@@ -17,44 +17,35 @@
 package net.zdechov.sharpmz.jmzemu.module.device.z80;
 
 import net.zdechov.sharpmz.jmzemu.module.device.z80.api.CpuDeviceModuleApi;
-import org.exbin.framework.api.XBApplicationModule;
-import org.exbin.xbup.plugin.XBModuleHandler;
+import org.exbin.framework.Module;
 
 /**
  * Z80 CPU device module.
  *
- * @version 0.2.0 2016/08/03
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
-public class CpuDeviceModule implements CpuDeviceModuleApi, XBApplicationModule {
+public class CpuDeviceModule implements CpuDeviceModuleApi, Module {
 
     private Z80 cpu;
 
     public CpuDeviceModule() {
     }
 
-    @Override
-    public void init(XBModuleHandler xbmh) {
+    public void init() {
         cpu = new Z80();
     }
 
     @Override
-    public void registerMemoryHandler(XBApplicationModule module, MemoryHandler memoryHandler) {
+    public void registerMemoryHandler(Module module, MemoryHandler memoryHandler) {
         cpu.registerMemoryHandler(memoryHandler);
     }
 
     @Override
-    public void registerPortHandler(XBApplicationModule module, PortHandler portHandler) {
+    public void registerPortHandler(Module module, PortHandler portHandler) {
         cpu.registerPortHandler(portHandler);
     }
 
-    @Override
-    public void unregisterModule(XBApplicationModule module) {
+    public void unregisterModule(Module module) {
         cpu.unregisterModule(module);
-    }
-
-    @Override
-    public void unregisterModule(String string) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

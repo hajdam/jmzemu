@@ -19,8 +19,7 @@ package net.zdechov.sharpmz.jmzemu.module.gui.panel;
 /**
  * Toolbar apperance options panel.
  *
- * @version 0.2.0 2016/08/03
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
 public class AboutDialogSidePanel extends javax.swing.JPanel {
 

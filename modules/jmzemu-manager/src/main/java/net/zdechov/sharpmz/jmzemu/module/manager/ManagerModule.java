@@ -16,24 +16,12 @@ package net.zdechov.sharpmz.jmzemu.module.manager;
  * You should have received a copy of the GNU General Public License
  * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
  */
-import org.exbin.framework.api.XBApplicationModule;
-import org.exbin.xbup.plugin.XBModuleHandler;
+import org.exbin.framework.Module;
 
 /**
  * Manager module.
  *
- * @version 0.2.0 2016/08/03
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
-public class ManagerModule implements XBApplicationModule {
-
-    @Override
-    public void init(XBModuleHandler xbmh) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void unregisterModule(String string) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+public class ManagerModule implements Module {
 }

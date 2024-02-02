@@ -16,15 +16,14 @@
  */
 package net.zdechov.sharpmz.jmzemu.module.device.z80.api;
 
-import org.exbin.framework.api.XBApplicationModule;
+import org.exbin.framework.Module;
 
 /**
  * Z80 device interface.
  *
- * @version 0.2.0 2016/08/03
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
-public interface CpuDeviceModuleApi extends XBApplicationModule {
+public interface CpuDeviceModuleApi extends Module {
 
     /**
      * Register memory handler.
@@ -32,7 +31,7 @@ public interface CpuDeviceModuleApi extends XBApplicationModule {
      * @param module
      * @param memoryHandler
      */
-    void registerMemoryHandler(XBApplicationModule module, MemoryHandler memoryHandler);
+    void registerMemoryHandler(Module module, MemoryHandler memoryHandler);
 
     /**
      * Register port handler.
@@ -40,14 +39,7 @@ public interface CpuDeviceModuleApi extends XBApplicationModule {
      * @param module
      * @param portHandler
      */
-    void registerPortHandler(XBApplicationModule module, PortHandler portHandler);
-
-    /**
-     * Unregister handlers registred for other modules.
-     *
-     * @param module
-     */
-    void unregisterModule(XBApplicationModule module);
+    void registerPortHandler(Module module, PortHandler portHandler);
 
     public interface MemoryHandler {
 

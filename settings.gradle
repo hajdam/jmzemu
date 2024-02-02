@@ -21,7 +21,7 @@ include ':modules:jmzemu-machine'
 include ':modules:jmzemu-manager'
 include ':modules:jmzemu-keyboard'
 
-include ':tools:jmzemu-app'
+include ':apps:jmzemu-app'
 
 File placeholder = file("deps/_placeholder")
 if (placeholder.exists()) {

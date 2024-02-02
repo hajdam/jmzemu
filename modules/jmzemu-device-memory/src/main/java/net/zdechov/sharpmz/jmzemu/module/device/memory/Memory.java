@@ -23,11 +23,10 @@ import net.zdechov.sharpmz.jmzemu.module.device.memory.api.RomMemory;
 
 /**
  * Sharp MZ Memory.
- * 
+ *
  * This file was originally kindly provided by Zdeněk Adler, ZA Software, 2011
  *
- * @version 0.1.0 2014/08/21
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
 
 public class Memory implements RomMemory {

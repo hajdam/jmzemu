@@ -1,18 +1,14 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'signing'
+}
+
 group = 'net.zdechov.sharpmz'
 ext.libraryName = 'Sharp MZ Emulator I8253 Device Library'
 ext.libraryDescription = 'I8253 device library'
 
 apply from: '../jmzemu-modules.gradle'
-
-buildscript {
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
-    dependencies {
-        classpath("at.bxm.gradleplugins:gradle-svntools-plugin:latest.integration")
-    }
-}
 
 if (!hasProperty('mainClass')) {
     ext.mainClass = ''
@@ -27,6 +23,6 @@ repositories {
 }
 
 dependencies {
-    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-api')
+    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'modules', 'jmzemu-device-api')
     testImplementation group : 'junit', name: 'junit', version: '4.10'
 }

@@ -1,18 +1,14 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'signing'
+}
+
 group = 'net.zdechov.sharpmz'
 ext.libraryName = 'Sharp MZ Emulator CPU Device Library'
 ext.libraryDescription = 'CPU device library'
 
 apply from: '../jmzemu-modules.gradle'
-
-buildscript {
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
-    dependencies {
-        classpath("at.bxm.gradleplugins:gradle-svntools-plugin:latest.integration")
-    }
-}
 
 if (!hasProperty('mainClass')) {
     ext.mainClass = ''
@@ -27,8 +23,8 @@ repositories {
 }
 
 dependencies {
-    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-api')
-    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-cpu-api')
+    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'modules', 'jmzemu-device-api')
+    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'modules', 'jmzemu-device-cpu-api')
 
     testImplementation group : 'junit', name: 'junit', version: '4.10'
 }

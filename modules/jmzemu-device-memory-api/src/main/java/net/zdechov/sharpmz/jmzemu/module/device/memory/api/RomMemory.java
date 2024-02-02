@@ -19,8 +19,7 @@ package net.zdechov.sharpmz.jmzemu.module.device.memory.api;
 /**
  * Z80 device interface.
  *
- * @version 0.1.1 2014/08/21
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
 public interface RomMemory {
 

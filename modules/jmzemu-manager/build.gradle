@@ -1,18 +1,14 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'signing'
+}
+
 group = 'net.zdechov.sharpmz'
 ext.libraryName = 'Sharp MZ Emulator Manager Library'
 ext.libraryDescription = 'Manager library'
 
 apply from: '../jmzemu-modules.gradle'
-
-buildscript {
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
-    dependencies {
-        classpath("at.bxm.gradleplugins:gradle-svntools-plugin:latest.integration")
-    }
-}
 
 if (!hasProperty('mainClass')) {
     ext.mainClass = ''
@@ -27,8 +23,8 @@ repositories {
 }
 
 dependencies {
-    implementation moduleDep('XbupJava', 'org.exbin.xbup', 'xbup-plugin')
-    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'jmzemu-device-api')
+    implementation moduleDep('XbupJava', 'org.exbin.xbup', 'modules', 'xbup-plugin')
+    implementation moduleDep('Jmzemu', 'net.zdechov.sharpmz', 'modules', 'jmzemu-device-api')
 
     testImplementation group : 'junit', name: 'junit', version: '4.10'
 }

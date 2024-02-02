@@ -16,30 +16,18 @@
  */
 package net.zdechov.sharpmz.jmzemu.module.device.gdg;
 
-import org.exbin.framework.api.XBApplicationModule;
-import org.exbin.xbup.plugin.XBModuleHandler;
+import org.exbin.framework.Module;
 
 /**
  * GDG device module.
  *
- * @version 0.2.0 2016/08/03
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
-public class GdgDeviceModule implements XBApplicationModule {
+public class GdgDeviceModule implements Module {
 
     private final Gdg gdgHandler = new Gdg();
 
     public GdgDeviceModule() {
-    }
-
-    @Override
-    public void init(XBModuleHandler xbmh) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void unregisterModule(String string) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public Gdg getGdgHandler() {

@@ -22,16 +22,14 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JMenuItem;
-import org.exbin.framework.api.XBApplicationModule;
-import org.exbin.xbup.plugin.XBModuleHandler;
+import org.exbin.framework.Module;
 
 /**
  * Pio device module.
  *
- * @version 0.2.0 2016/08/03
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
-public class IoDeviceModule implements XBApplicationModule {
+public class IoDeviceModule implements Module {
 
     private Io io;
 
@@ -45,8 +43,7 @@ public class IoDeviceModule implements XBApplicationModule {
     public IoDeviceModule() {
     }
 
-    @Override
-    public void init(XBModuleHandler moduleHandler) {
+    public void init() {
         helpContextMenuItem = new JMenuItem("Help Contents...");
         String path = ".";
         try {
@@ -60,10 +57,5 @@ public class IoDeviceModule implements XBApplicationModule {
 //        moduleHandler.getMenuManagement().addMenuItem(helpContextMenuItem, BasicMenuType.HELP, MenuPositionMode.BEFORE_PANEL);
 
         io = new Io();
-    }
-
-    @Override
-    public void unregisterModule(String string) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

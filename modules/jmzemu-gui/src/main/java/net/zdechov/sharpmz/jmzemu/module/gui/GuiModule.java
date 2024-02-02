@@ -16,25 +16,13 @@
  */
 package net.zdechov.sharpmz.jmzemu.module.gui;
 
-import org.exbin.framework.api.XBApplicationModule;
-import org.exbin.xbup.plugin.XBModuleHandler;
+import org.exbin.framework.Module;
 
 /**
  * Gui module.
  *
- * @version 0.2.0 2016/08/03
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
-public class GuiModule implements XBApplicationModule {
-
-    @Override
-    public void init(XBModuleHandler moduleHandler) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void unregisterModule(String string) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+public class GuiModule implements Module {
 
 }

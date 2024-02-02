@@ -23,8 +23,7 @@ import java.awt.event.*;
  *
  * This file was originally kindly provided by Zdeněk Adler, ZA Software, 2011
  *
- * @version 0.1.0 2012/06/21
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
 public class I8255 {
 //

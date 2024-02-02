@@ -23,17 +23,16 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JMenuItem;
-import org.exbin.framework.api.XBApplicationModule;
+import org.exbin.framework.Module;
 import org.exbin.xbup.plugin.XBModuleHandler;
 
 /**
  * Memory device module.
  *
- * @version 0.2.0 2016/08/03
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
-public class MemoryDeviceModule implements XBApplicationModule {
-    
+public class MemoryDeviceModule implements Module {
+
     private Memory memory;
 
 //    private static ResourceMap resourceMap;
@@ -54,12 +53,7 @@ public class MemoryDeviceModule implements XBApplicationModule {
             Logger.getLogger(MemoryDeviceModule.class.getName()).log(Level.SEVERE, null, ex);
         }
 //        moduleHandler.getMenuManagement().addMenuItem(helpContextMenuItem, BasicMenuType.HELP, MenuPositionMode.BEFORE_PANEL);
-        
-        memory = new Memory();
-    }
 
-    @Override
-    public void unregisterModule(String string) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        memory = new Memory();
     }
 }

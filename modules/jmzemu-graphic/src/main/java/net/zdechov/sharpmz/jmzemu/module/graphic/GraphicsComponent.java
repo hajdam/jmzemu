@@ -27,8 +27,7 @@ import javax.swing.JComponent;
 /**
  * Graphics component.
  *
- * @version 0.2.0 2016/08/03
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
 public class GraphicsComponent extends JComponent {
 

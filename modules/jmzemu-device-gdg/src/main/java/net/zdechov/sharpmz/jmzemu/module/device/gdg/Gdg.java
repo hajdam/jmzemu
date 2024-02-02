@@ -25,11 +25,10 @@ import net.zdechov.sharpmz.jmzemu.module.device.memory.api.RomMemory;
  *
  * This file was originally kindly provided by Zdeněk Adler, ZA Software, 2011
  *
- * @version 0.2.0 2016/08/03
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
 public class Gdg {
-    
+
     private static final int DISPLAY_PAL_RESOLUTION_X = 460;
     private static final int DISPLAY_PAL_RESOLUTION_Y = 287;
 
@@ -37,7 +36,7 @@ public class Gdg {
 
     public BufferedImage image = new BufferedImage(DISPLAY_PAL_RESOLUTION_X, DISPLAY_PAL_RESOLUTION_Y, BufferedImage.TYPE_INT_RGB);
     public Graphics graphics = image.getGraphics();
-    
+
     private final int[] mz700cols = {
         0x000000,
         0x0000FF,

@@ -18,24 +18,23 @@ package net.zdechov.sharpmz.jmzemu.module.device.z80;
 
 import java.util.HashMap;
 import net.zdechov.sharpmz.jmzemu.module.device.z80.api.CpuDeviceModuleApi;
-import org.exbin.framework.api.XBApplicationModule;
+import org.exbin.framework.Module;
 
 /**
  * JMZ Z-80 CPU.
- * 
+ *
  * This file was originally kindly provided by Zdeněk Adler, ZA Software, 2011
  *
- * @version 0.2.0 2016/08/03
- * @author JMZEmu Project (http://sharpmz.zdechov.net/?jmzemu)
+ * @author JMZEmu Project (https://sharpmz.zdechov.net/?jmzemu)
  */
 
 // Fixed Jasper interrupt and HALT emulation
 
 public class Z80 {
-    
-    private HashMap<XBApplicationModule, CpuDeviceModuleApi.MemoryHandler> memoryHandlers;
-    private HashMap<XBApplicationModule, CpuDeviceModuleApi.PortHandler> portHandlers;
-    
+
+    private HashMap<Module, CpuDeviceModuleApi.MemoryHandler> memoryHandlers;
+    private HashMap<Module, CpuDeviceModuleApi.PortHandler> portHandlers;
+
     private CpuDeviceModuleApi.MemoryHandler memoryHandler;
     private CpuDeviceModuleApi.PortHandler portHandler;
 
@@ -4290,7 +4289,7 @@ public class Z80 {
         this.portHandler = portHandler;
     }
 
-    void unregisterModule(XBApplicationModule module) {
-        
+    void unregisterModule(Module module) {
+
     }
 }
